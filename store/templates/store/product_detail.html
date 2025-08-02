@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} - MARK MENS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', Arial, sans-serif; margin: 0; padding: 0; background: #f4f6f8; }
+        .container { max-width: 600px; margin: 2rem auto; background: #fff; padding: 2.5rem 2rem; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+        .back-link { display: inline-block; margin-bottom: 1.5rem; color: #25D366; text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        .product-img { width: 100%; max-height: 350px; object-fit: cover; border-radius: 12px; background: #eee; margin-bottom: 1.5rem; }
+        h1 { margin: 0 0 0.5rem 0; font-size: 2rem; color: #222; }
+        .price { color: #25D366; font-weight: bold; font-size: 1.3rem; margin: 0.5rem 0 1rem 0; }
+        .desc { color: #555; font-size: 1.05rem; margin-bottom: 2rem; }
+        .whatsapp-btn { display: inline-block; background: #25D366; color: #fff; border: none; border-radius: 4px; padding: 0.9rem 2rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: background 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+        .whatsapp-btn:hover { background: #128C7E; }
+        @media (max-width: 700px) { .container { padding: 1rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Shop</a>
+        <h1>{{ product.name }}</h1>
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-img">
+        {% else %}
+            <img src="https://via.placeholder.com/400x300?text=No+Image" alt="No Image" class="product-img">
+        {% endif %}
+        <div class="price">${{ product.price }}</div>
+        <div class="desc">{{ product.description }}</div>
+        <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20{{ product.name }}" class="whatsapp-btn" target="_blank">Chat to Buy on WhatsApp</a>
+    </div>
+</body>
+</html> 
